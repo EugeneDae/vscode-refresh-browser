@@ -25,6 +25,14 @@ Another extension, @fabiospampinatoʼs [Browser Refresh](https://marketplace.vis
 #### I need “force refresh”. What can I do?
 Keep your browsers console always open and disable caching. Alternative solution: use @fabiospampinatoʼs [Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh) extension.
 
+## Install
+
+Click Install on the [Marketplace](https://marketplace.visualstudio.com/items?itemName=dae.vscode-refresh-browser), or run the following in the command palette:
+
+```
+ext install dae.vscode-refresh-browser
+```
+
 ## Usage
 
 Press Cmd-R or select `Refresh Browser` in the command palette (Cmd-Shift-P).
