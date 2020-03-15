@@ -1,28 +1,87 @@
 {
-	"name": "refresh-browser",
+	"name": "vscode-refresh-browser",
 	"displayName": "Refresh Browser (macOS only)",
-	"description": "(macOS only!) Refresh your browser with ⌘R right from Code without losing focus.",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.43.0"
+	"description": "Refresh your web-browser with ⌘R without switching from Code. Only works on macOS. Supports Chrome and Safari.",
+	"version": "1.0.0",
+	"author": {
+		"name": "Eugene / Dae",
+		"email": "dae@dae.me"
 	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/EugeneDae/vscode-refresh-browser"
+	},
+	"bugs": {
+		"url": "https://github.com/EugeneDae/vscode-refresh-browser/issues"
+	},
+	"publisher": "dae",
+	"icon": "res/icon.png",
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"browser", "google chrome"
+	],
+	"engines": {
+		"vscode": "^1.43.0"
+	},
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.refreshBrowser"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Refresh Browser",
+			"properties": {
+				"refreshBrowser.browser": {
+					"type": "string",
+					"markdownDescription": "The browser to refresh. Firefox is not supported, sorry.",
+					"default": "Google Chrome",
+					"enum": [
+						"Google Chrome",
+						"Safari",
+						"Opera",
+						"Microsoft Edge",
+						"Vivaldi",
+						"Brave Browser",
+						"Yandex",
+						"Webkit",
+						"Safari Technology Preview",
+						"Chromium",
+						"Google Chrome Canary"
+					]
+				},
+				"refreshBrowser.urlPrefixes": {
+					"type": "array",
+					"markdownDescription": "*(Optional)* Refresh the tab whose URL starts with one of the prefixes specified below. For example, if you add `https://localhost`, a tab whose URL is `https://localhost/website/index.html` will be refreshed. If there are multiple tabs with matching URLs, only the first one will be refreshed. If there are no tabs with a matching URL, the active tab will be refreshed.",
+					"default": [],
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		},
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.refreshBrowser",
+				"title": "Refresh Browser"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.refreshBrowser",
+				"key": "ctrl+r",
+				"mac": "cmd+r"
 			}
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
+		"vscode:prepublish": "rm -rf out && webpack --mode production",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
+		"test-compile": "tsc -p ./",
 		"compile": "tsc -p ./",
 		"lint": "eslint src --ext ts",
 		"watch": "tsc -watch -p ./",
@@ -30,16 +89,15 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^7.0.1",
 		"@types/node": "^12.11.7",
 		"@types/vscode": "^1.43.0",
-		"eslint": "^6.8.0",
-		"@typescript-eslint/parser": "^2.18.0",
 		"@typescript-eslint/eslint-plugin": "^2.18.0",
-		"glob": "^7.1.6",
-		"mocha": "^7.0.1",
+		"@typescript-eslint/parser": "^2.18.0",
+		"applescript": "^1.0.0",
+		"eslint": "^6.8.0",
+		"ts-loader": "^6.2.1",
 		"typescript": "^3.7.5",
-		"vscode-test": "^1.3.0"
+		"webpack": "^4.42.0",
+		"webpack-cli": "^3.3.11"
 	}
 }
