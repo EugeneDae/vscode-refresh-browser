@@ -11,7 +11,7 @@ const BROWSER_TYPES: { [key: string]: Array<string> } = {
     ]
 };
 
-const BROWSER_SCRIPTS: { [key: string]: Function }= {
+const BROWSER_SCRIPTS: { [key: string]: Function } = {
     'safari': (browserName: string, urlPrefixes: Array<string>) => `
 ${COMMON_SCRIPT}
 

@@ -21,7 +21,10 @@
 		"Other"
 	],
 	"keywords": [
-		"keybindings", "browser", "google chrome", "safari"
+		"keybindings",
+		"browser",
+		"google chrome",
+		"safari"
 	],
 	"engines": {
 		"vscode": "^1.43.0"
@@ -89,10 +92,10 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/node": "^12.11.7",
+		"@types/node": "^12.12.30",
 		"@types/vscode": "^1.43.0",
-		"@typescript-eslint/eslint-plugin": "^2.18.0",
-		"@typescript-eslint/parser": "^2.18.0",
+		"@typescript-eslint/eslint-plugin": "^2.24.0",
+		"@typescript-eslint/parser": "^2.24.0",
 		"applescript": "^1.0.0",
 		"eslint": "^6.8.0",
 		"ts-loader": "^6.2.1",
