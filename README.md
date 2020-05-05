@@ -6,28 +6,23 @@
 
 Refresh your web-browser with ⌘R shortcut without switching from Code. **Only works on macOS!**
 
-#### Why macOS only?
+## FAQ
 
-This extension relies on AppleScript to communicate with the browser.
+- **Why macOS only?** This extension relies on AppleScript to communicate with the browser.
 
-#### Which browsers are supported?
+- **Which browsers are supported?** Safari, Chrome and Chromium-based browsers, such as Edge, Opera etc. Firefox is not supported, because it lacks the AppleScript API. For Firefox and other browsers, use [@fabiospampinatoʼs Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh) extension.
 
-Safari, Chrome and Chromium-based browsers, such as Edge, Opera etc. Firefox is not supported, because it lacks the AppleScript API. For Firefox and other browsers, use [@fabiospampinatoʼs Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh) extension.
+- **How is this extension different to [@fabiospampinatoʼs Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh)?** Refresh Browser (this extension) communicates with the browser directly via the browserʼs AppleScript API. For this reason:
 
-#### How is this extension different to [@fabiospampinatoʼs Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh)?
+    - it works slightly faster;
+    - Code always stays in focus;
+    - it can find a tab to refresh by URL (configure this behavior using the `refreshBrowser.findTabByUrlStartingWith` setting).
 
-Refresh Browser (this extension) communicates with the browser directly via the browserʼs AppleScript API. For this reason:
+    At the same time, it has limited browser support and is unable to send a “force refresh” command to the browser.
 
-- it works slightly faster;
-- Code always stays in focus;
-- it can find a tab to refresh by URL (configure this behavior using the `refreshBrowser.findTabByUrlStartingWith` setting).
+    [@fabiospampinatoʼs Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh) uses AppleScript to simulate the ⌘R keystroke in the browser window, resulting in Code window losing focus for a fraction of a second. The keystrokes method has its advantages: it can be used to simulate the “force refresh” keystroke (Cmd-Shift-R) and it is more universal in terms of browser support.
 
-At the same time, it has limited browser support annd is unable to send a “force refresh” command to the browser.
-
-[@fabiospampinatoʼs Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh) uses AppleScript to simulate the ⌘R keystroke in the browser window, resulting in Code window losing focus for a fraction of a second. The keystrokes method has its advantages: it can be used to simulate the “force refresh” keystroke (Cmd-Shift-R) and it is more universal in terms of browser support.
-
-#### I need “force refresh”. What can I do?
-Keep your browsers console always open and disable caching. Alternative solution: use [@fabiospampinatoʼs Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh) extension.
+- **I need “force refresh”. What can I do?** Keep your browsers console always open and disable caching. Alternative solution: use [@fabiospampinatoʼs Browser Refresh](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-browser-refresh) extension.
 
 ## Installation
 
@@ -41,6 +36,8 @@ ext install dae.vscode-refresh-browser
 
 Press Cmd-R or select `Refresh Browser` in the command palette (Cmd-Shift-P).
 
+Command ID: `extension.refreshBrowser`
+
 ## Settings
 
 - `refreshBrowser.browser` — the browser to refresh, default: `Google Chrome`.
@@ -53,4 +50,4 @@ If you have a problem or a suggestion, please open an issue on [GitHub](https://
 
 ## License
 
-MIT License © Eugene Zuyev (dae@dae.me).
+MIT License © Eugene ‘Dae’ Zuyev (dae@dae.me).
