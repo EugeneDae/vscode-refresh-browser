@@ -6,6 +6,8 @@
 
 Refresh your web-browser with a ⌘R shortcut without switching from VS Code. **Only works on macOS!**
 
+**🔥 NEW FEATURE IN VERSION 1.1.0:** enable `refreshBrowser.runBuildTask` setting if you want to run the build task of your project before refreshing the browser.
+
 ## FAQ
 
 - **Why macOS only?** This extension relies on AppleScript to communicate with the browser.
@@ -44,6 +46,7 @@ Command ID: `extension.refreshBrowser`
 {
     "refreshBrowser.browser": "Google Chrome", // the browser to refresh
     "refreshBrowser.urlPrefixes": [] // refresh the tab whose URL starts with one of the specified prefixes
+    "refreshBrowser.runBuildTask": false // if enabled, run the build task and wait for its completion before refreshing the browser (if the build task is not available, simply refresh the browser)
 }
 ```
 

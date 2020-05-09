@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.0 (10 May 2020)
+## 1.1.1 (10 May 2020)
 
 ### Enhancements
 
