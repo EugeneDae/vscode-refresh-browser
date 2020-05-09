@@ -5,6 +5,7 @@ node_modules/**
 src/**
 .eslintrc.json
 .gitignore
+.github/**
 tsconfig.json
 webpack.config.js
 res/icon.afdesign

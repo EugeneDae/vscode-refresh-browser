@@ -2,7 +2,7 @@
 	"name": "vscode-refresh-browser",
 	"displayName": "Refresh Browser (macOS only)",
 	"description": "Refresh your web-browser with ⌘R without switching from Code. Only works on macOS. Supports Chrome and Safari.",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"author": {
 		"name": "Eugene / Dae",
 		"email": "dae@dae.me"
@@ -27,7 +27,7 @@
 		"safari"
 	],
 	"engines": {
-		"vscode": "^1.43.0"
+		"vscode": "^1.45.0"
 	},
 	"activationEvents": [
 		"onCommand:extension.refreshBrowser"
@@ -58,11 +58,16 @@
 				},
 				"refreshBrowser.urlPrefixes": {
 					"type": "array",
-					"markdownDescription": "*(Optional)* Refresh the tab whose URL starts with one of the prefixes specified below. For example, if you add `https://localhost`, a tab whose URL is `https://localhost/website/index.html` will be refreshed. If there are multiple tabs with matching URLs, only the first one will be refreshed. If there are no tabs with a matching URL, the active tab will be refreshed.",
+					"markdownDescription": "Refresh the tab whose URL starts with one of the prefixes specified below. For example, if you add `https://localhost`, a tab whose URL is `https://localhost/website/index.html` will be refreshed. If there are multiple tabs with matching URLs, only the first one will be refreshed. If there are no tabs with a matching URL, the active tab will be refreshed.",
 					"default": [],
 					"items": {
 						"type": "string"
 					}
+				},
+				"refreshBrowser.runBuildTask": {
+					"type": "boolean",
+					"markdownDescription": "Run the build task and wait for its completion before refreshing the browser. If the build task is not available, simply refresh the browser.",
+					"default": false
 				}
 			}
 		},
@@ -84,23 +89,20 @@
 		"vscode:prepublish": "rm -rf out && webpack --mode production",
 		"webpack": "webpack --mode development",
 		"webpack-dev": "webpack --mode development --watch",
-		"test-compile": "tsc -p ./",
 		"compile": "tsc -p ./",
 		"lint": "eslint src --ext ts",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"test": "node ./out/test/runTest.js"
+		"watch": "tsc -watch -p ./"
 	},
 	"devDependencies": {
-		"@types/node": "^12.12.30",
-		"@types/vscode": "^1.43.0",
-		"@typescript-eslint/eslint-plugin": "^2.24.0",
-		"@typescript-eslint/parser": "^2.24.0",
+		"@types/node": "^12.12.38",
+		"@types/vscode": "^1.45.0",
+		"@typescript-eslint/eslint-plugin": "^2.31.0",
+		"@typescript-eslint/parser": "^2.31.0",
 		"applescript": "^1.0.0",
 		"eslint": "^6.8.0",
-		"ts-loader": "^6.2.1",
-		"typescript": "^3.7.5",
-		"webpack": "^4.42.0",
+		"ts-loader": "^7.0.3",
+		"typescript": "^3.8.3",
+		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.11"
 	}
 }
