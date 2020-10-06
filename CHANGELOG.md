@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2 (6 October 2020)
+
+1. Fix for Remote Development (#4, thanks @abhibeckert).
+
 ## 1.1.1 (10 May 2020)
 
 ### Enhancements
