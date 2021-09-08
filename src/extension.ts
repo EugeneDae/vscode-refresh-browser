@@ -2,14 +2,6 @@ import * as vscode from 'vscode';
 import * as applescript from 'applescript';
 import Script from './script';
 
-function showInformationMessage(msg: string): void {
-    vscode.window.showInformationMessage('[Refresh Browser] ' + msg);
-}
-
-function showErrorMessage(msg: string): void {
-    vscode.window.showErrorMessage('[Refresh Browser] ' + msg);
-}
-
 function runScript(script: string): Promise<any> {
     return new Promise((resolve, reject) => {
         applescript.execString(script, (err: any, rtn: any) => {
@@ -81,7 +73,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 		runScript(script).catch((err) => {
 			console.log(err);
-			vscode.window.showErrorMessage('An error occurred.');
+			vscode.window.showErrorMessage(
+				'Unexpected AppleScript error occurred while trying to refresh browser. Please report to https://git.io/Ju4oG. ' + String(err)
+			);
 		});
 	}));
 }

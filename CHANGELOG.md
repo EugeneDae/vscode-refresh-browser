@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3 (8 September 2021)
+
+1. More informative AppleScript errors (#10, thanks @halo).
+
 ## 1.1.2 (6 October 2020)
 
 1. Fix for Remote Development (#4, thanks @abhibeckert).
